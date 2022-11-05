@@ -1,0 +1,26 @@
+/* fonte para logo, navbar e paragrafos */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;300;400;600;700&display=swap');
+/* fonte titulo */
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.background{
+    background-color: #f4f4f4;
+}
+/* .background{
+    background-color: var(--cor-bg);
+} */
+:root{
+    --cor-p: #9be1eb;
+    --cor-s: #45B39D;
+    --cor-t: #D1F2EB;
+    --cor-det: rgb(1, 255, 166);
+    /* --cor-bg: #324a61da ; */
+    --font-logo: 'Bebas Neue', cursive;
+    --font-titulo: 'Hind', sans-serif;
+    --font-principal: 'Poppins', sans-serif;
+}

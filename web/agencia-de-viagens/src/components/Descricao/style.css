@@ -1,0 +1,52 @@
+/* explicação da agencia------------- */
+.explicacao{
+    margin-top: 100px;
+    position: relative;
+}
+.titulo{
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+p{
+    font-family: var(--font-principal);
+    font-weight: 600;
+}
+strong{
+    color: var(--cor-s);
+}
+.svg{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.col-text{
+    background-color: #f7fdfc;
+    padding: 0.5rem;
+    border-radius: 2%;
+    width: 33%;
+    margin: 15px;
+    transition: 0.5s;
+}
+@media(max-width: 850px){
+ .col-text{
+    width: 100%;
+    margin-left:0px ;
+    margin-right: 0px;
+ }
+}
+.col-text:hover{
+    border: 5px solid var(--cor-s);
+    padding: 2px;
+    box-shadow: 0 0 15px rgba(4, 9, 30, 0.5);
+    transform: scale(1.1);
+    z-index: 2;
+
+}
+.col-text:has(.col-text:hover){
+    margin: 0px;
+}
+.section-apresentacao{
+    /* height: 80vh; */
+}

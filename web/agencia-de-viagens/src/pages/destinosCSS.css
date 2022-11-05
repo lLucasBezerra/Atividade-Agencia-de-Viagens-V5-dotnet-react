@@ -1,0 +1,32 @@
+/* PAGINA DE DESTINO ---------------- */
+/* conteudo-destino----- */
+.textinho{
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+.menu-destino{
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.card-titulo{
+    text-decoration: none;
+}
+.desconto{
+    font-size: 12px;
+    text-decoration: line-through;
+    color: red;
+    margin-bottom: 0;
+}
+.card-detalhes{
+    margin-top: 0.5rem;
+}
+.card-detalhes:hover{
+    box-shadow: 0 0 10px var(--cor-det);
+}
+.corpo-card{
+    height: 45vh;
+
+}

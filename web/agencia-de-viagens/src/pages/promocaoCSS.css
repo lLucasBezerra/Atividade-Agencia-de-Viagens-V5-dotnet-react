@@ -1,0 +1,47 @@
+.titulo-card{
+    margin-bottom: -4px;
+}
+
+.promo{
+    margin-top: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--cor-s);
+    height: 90vh;
+    padding: 2%;
+    margin-bottom: 40px;
+}
+@media (max-width: 870px){
+    .promo{
+        height: 160vh;
+    }
+}
+.f-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.linhap{
+    position: relative;
+}
+.linhap::before{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 8px;
+    background: rgb(7,144,105);
+    background: linear-gradient(90deg, rgb(87, 243, 199) 26%, rgb(1, 255, 166) 100%);
+}
+.pacotes{
+    margin-top: 1rem;
+}
+
+.desconto{
+    font-size: 12px;
+    text-decoration: line-through;
+    color: red;
+    margin-bottom: 0;
+}

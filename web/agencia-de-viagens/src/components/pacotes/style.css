@@ -1,0 +1,41 @@
+.pacotes{
+    margin-top: 1rem;
+}
+.div-pac{
+    background-color: var(--cor-s);
+    padding: 2%;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+.lorem{
+    font-family: var(--font-principal);
+}
+.div-pac p{
+    color: white;
+}
+.div-pac a{
+    color:white;
+}
+.div-pac a:hover{
+    color: var(--cor-p);
+    transition: .3s;
+}
+.promo-titulo{
+    text-decoration: none; 
+}
+.promo-titulo:hover{
+    color: var(--cor-det);
+}
+.promo-input{
+    margin-left: 8px;
+    border: none;
+    font-family: var(--font-principal);
+    border-radius: 8px;
+    padding: 4px;
+}
+.promo-input:hover{
+    background-color: var(--cor-t);
+    transition: 0.3s;
+}

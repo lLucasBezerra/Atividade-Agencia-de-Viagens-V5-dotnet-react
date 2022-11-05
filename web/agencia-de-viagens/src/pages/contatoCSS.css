@@ -1,0 +1,79 @@
+/* PAGINA DE CONTATOS -------------- */
+.background-contato{
+    height: 100%;
+    background-image: url(../assets/background-contato.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.width{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-contato{
+    margin: 30px;
+    height: 150vh;
+    width: 50%;
+    background-color: var(--cor-s);
+    border-radius: 10px;
+    opacity: 0.95;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contato{
+    width: 80%;
+    /* o do hover será esse */
+}
+.label-block{
+    display: flex;
+    flex-direction: column;
+}
+.contform{
+    /* background-color: gold; */
+    width: 100%;
+    padding: 1rem;
+}
+.input-contato{
+    outline: none;
+    border: none;
+    font-family: var(--font-principal);
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+.input-contato:focus{
+    background-color: var(--cor-p);
+    border: 1px solid var(--cor-det);
+    box-shadow: 0 0 10px var(--cor-det);
+    opacity: 1;
+}
+.contform input[type="submit"]{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-family: var(--font-principal);
+    border-radius: 8px;
+    padding: 4px;
+}
+.contform input[type="submit"]:hover{
+    background-color: var(--cor-t);
+    opacity: 1;
+    box-shadow: 0 0 10px var(--cor-det);
+    transition: 0.3s;
+}
+@media (max-width: 850px){
+    .section-contato{
+        width: 100%;
+        height: 80vh;
+    }
+}
+.section-icons{
+    margin-top: 2rem;
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+}

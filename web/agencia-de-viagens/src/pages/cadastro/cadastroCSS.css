@@ -1,0 +1,57 @@
+.th-color{
+    background-color: var(--cor-s);
+}
+/* cadastro rápido---------- */
+.cadastro-rapido{
+    margin-top: 1em;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: var(--cor-s);
+}
+.cadastro-rapido:hover{
+    border-radius: 10px;
+    background-color: #50bba5;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.div-form{
+    display: flex;
+    flex-direction: row;
+}
+.input{
+    position: relative;
+}
+.input input{
+    border: none;
+    outline: none;
+    font-family: var(--font-principal);
+    margin-left: 0.3rem;
+    font-size: 1rem;
+    padding: 4px;
+}
+.cad-rap-input{
+    display: flex; 
+    flex-direction:column;
+}
+.input input::placeholder{
+    color: rgba(0, 0, 0, 0.425);
+
+}
+.input input:focus{
+    background-color: var(--cor-p);
+    transition: 0.3s;
+}
+@media (max-width: 1000px){
+    .div-form{
+        flex-direction: column;
+    }
+}
+form select{
+    background-color: var(--cor-s);
+    font-family: var(--font-principal);
+    
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
