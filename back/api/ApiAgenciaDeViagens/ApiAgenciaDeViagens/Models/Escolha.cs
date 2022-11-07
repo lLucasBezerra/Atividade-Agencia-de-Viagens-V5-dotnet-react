@@ -2,9 +2,9 @@
 {
     public class Escolha
     {
-        public Cliente ClienteId { get; set; }
-        public Destino DestinoId { get; set; }
-        public Voo vooId { get; set; }
+        public int ClienteId { get; set; }
+        public int DestinoId { get; set; }
+        public int vooId { get; set; }
 
 
         public Cliente Cliente { get; set; }

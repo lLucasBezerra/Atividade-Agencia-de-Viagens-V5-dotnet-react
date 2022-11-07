@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "YsQqI7VLYN6rjxdzXXiolQZxKOZhLTOsEkxNXN9WwO5RalYylYh5CsfiIJRpgdjNczHPkezTAEWYSvkRMgLL9w==",
+  "dgSpecHash": "3IQ5WqDawu8tjRkq0Spjdj4fgZ2Rr1YLJs7HuyxHusoQn3dF4EFCxCMkWL2KlgZYHovyOO2Y83INT7DawaLvAg==",
   "success": true,
   "projectFilePath": "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\pdf recode\\Entregas\\Atividade-Agencia-de-Viagens-V5-dotnet-react\\back\\api\\ApiAgenciaDeViagens\\ApiAgenciaDeViagens\\ApiAgenciaDeViagens.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lukas\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\lukas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\lukas\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.10\\microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "C:\\Users\\lukas\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.10\\microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
     "C:\\Users\\lukas\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.10\\microsoft.entityframeworkcore.analyzers.6.0.10.nupkg.sha512",
