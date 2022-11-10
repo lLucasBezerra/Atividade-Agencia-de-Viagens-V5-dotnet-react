@@ -7,6 +7,7 @@ namespace ApiAgenciaDeViagens.Repositories
     public class ClienteRepository : IClienteRepository
     {
         private readonly DataContext _context;
+
         public ClienteRepository(DataContext context)
         {
             _context = context;
@@ -25,9 +26,19 @@ namespace ApiAgenciaDeViagens.Repositories
             return _context.Clientes.Where(c => c.Cpf == cpf).FirstOrDefault();
         }
 
+        public bool ClienteExist(int id)
+        {
+            return _context.Clientes.Any(c => c.Id == id);
+        }
+
         public ICollection<Destino> GetDestinosByCliente(int id)
         {
-            return _context.Escolhas.Where(c => c.ClienteId == id).Select(d=>d.Destino).ToList();
+            return _context.Escolhas.Where(c => c.ClienteId == id).Select(d => d.Destino).ToList();
+        }
+
+        public ICollection<Voo> GetVoosByCliente(int id)
+        {
+            return _context.Escolhas.Where(c => c.ClienteId == id).Select(v => v.Voo).ToList();
         }
     }
 }

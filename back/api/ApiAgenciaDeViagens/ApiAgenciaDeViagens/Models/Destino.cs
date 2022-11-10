@@ -11,13 +11,16 @@ namespace ApiAgenciaDeViagens.Models
 
         [Column("pais", TypeName = "VARCHAR(50)")]
         public string? Pais { get; set; }
+
         [Column("cidade", TypeName = "VARCHAR(50)")]
         public string? Cidade { get; set; }
+
         [Column("obraRelacionada", TypeName = "VARCHAR(100)")]
         public string? ObraR { get; set; }
 
         //OneToMany
-        
+        [ForeignKey("promocao")]
+        public int? PromocaoId { get; set; }
         public Promocao? Promocao { get; set; }
         //ManyToMany
         public ICollection<Escolha> Escolhas { get; set; }

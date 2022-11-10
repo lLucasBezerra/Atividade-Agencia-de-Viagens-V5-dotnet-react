@@ -1,4 +1,5 @@
-﻿using ApiAgenciaDeViagens.Dto;
+﻿using ApiAgenciaDeViagens.dto;
+using ApiAgenciaDeViagens.Dto;
 using ApiAgenciaDeViagens.Interfaces;
 using ApiAgenciaDeViagens.Models;
 using AutoMapper;
@@ -38,12 +39,40 @@ namespace ApiAgenciaDeViagens.Controllers
         [ProducesResponseType(400)]
         public IActionResult GetCliente(int id)
         {
+            if (!_clienteRepository.ClienteExist(id))
+                return NotFound();
             var cliente = _mapper.Map<ClienteDto>(_clienteRepository.GetCliente(id));
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             return Ok(cliente);
+        }
+
+        [HttpGet("destino/{cliId}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Destino>))]
+        [ProducesResponseType(400)]
+        public IActionResult GetDestinosByClienteId(int cliId)
+        {
+            var destinos = _mapper.Map<List<DestinoDto>>(_clienteRepository.GetDestinosByCliente(cliId));
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            return Ok(destinos);
+        }
+
+        [HttpGet("voo/{cliId}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Voo>))]
+        [ProducesResponseType(400)]
+        public IActionResult GetVoosByClienteId(int cliId)
+        {
+            var voos = _mapper.Map<List<VooDto>>(_clienteRepository.GetVoosByCliente(cliId));
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            return Ok(voos);
         }
     }
 }

@@ -11,5 +11,6 @@ namespace ApiAgenciaDeViagens.Dto
         public string? Cidade { get; set; }
 
         public string? ObraR { get; set; }
+        public int? PromocaoId { get; set; }
     }
 }

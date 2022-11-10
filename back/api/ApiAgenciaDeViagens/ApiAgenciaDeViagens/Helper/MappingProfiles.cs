@@ -1,4 +1,5 @@
-﻿using ApiAgenciaDeViagens.Dto;
+﻿using ApiAgenciaDeViagens.dto;
+using ApiAgenciaDeViagens.Dto;
 using ApiAgenciaDeViagens.Models;
 using AutoMapper;
 
@@ -10,6 +11,8 @@ namespace ApiAgenciaDeViagens.Helper
         public MappingProfiles()
         {
             CreateMap<Cliente, ClienteDto>();
+            CreateMap<Destino, DestinoDto>();
+            CreateMap<Voo, VooDto>();
         }
     }
 }

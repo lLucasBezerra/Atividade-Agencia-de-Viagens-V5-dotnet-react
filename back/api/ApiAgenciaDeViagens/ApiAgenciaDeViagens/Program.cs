@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//fazendo a conexão
+// Fazendo a conexão
 string mySqlConnection =
     builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -15,8 +15,12 @@ builder.Services.AddDbContextPool<DataContext>(options =>
 // Add services to the container.
 
 builder.Services.AddControllers();
+// Para o autoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IDestinoRepository, DestinoRepository>();
+builder.Services.AddScoped<IVooRepository, VooRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
