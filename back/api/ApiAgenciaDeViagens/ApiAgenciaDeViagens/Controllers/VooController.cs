@@ -40,12 +40,12 @@ namespace ApiAgenciaDeViagens.Controllers
         [ProducesResponseType(400)]
         public IActionResult GetVoo(int id)
         {
-            if (!_vooRepository.VooExists)
+            if (!_vooRepository.VooExists(id))
                 return NotFound();
             var voo = _mapper.Map<VooDto>(_vooRepository.GetVoo(id));
 
             if (!ModelState.IsValid)
-                return BadRequest(modelState);
+                return BadRequest(ModelState);
 
             return Ok(voo);
         }
