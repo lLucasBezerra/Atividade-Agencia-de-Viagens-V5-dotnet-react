@@ -38,4 +38,7 @@ C:\Users\lukas\OneDrive\Área de Trabalho\pdf recode\Entregas\Atividade-Agencia-
 C:\Users\lukas\OneDrive\Área de Trabalho\pdf recode\Entregas\Atividade-Agencia-de-Viagens-V5-dotnet-react\back\api\ApiAgenciaDeViagens\ApiAgenciaDeViagens\obj\Debug\net6.0\ApiAgenciaDeViagens.pdb
 C:\Users\lukas\OneDrive\Área de Trabalho\pdf recode\Entregas\Atividade-Agencia-de-Viagens-V5-dotnet-react\back\api\ApiAgenciaDeViagens\ApiAgenciaDeViagens\obj\Debug\net6.0\ApiAgenciaDeViagens.genruntimeconfig.cache
 C:\Users\lukas\OneDrive\Área de Trabalho\pdf recode\Entregas\Atividade-Agencia-de-Viagens-V5-dotnet-react\back\api\ApiAgenciaDeViagens\ApiAgenciaDeViagens\obj\Debug\net6.0\ref\ApiAgenciaDeViagens.dll
+<<<<<<< HEAD
 C:\Users\lukas\OneDrive\Área de Trabalho\pdf recode\Entregas\Atividade-Agencia-de-Viagens-V5-dotnet-react\back\api\ApiAgenciaDeViagens\ApiAgenciaDeViagens\bin\Debug\net6.0\.filenesting.json
+=======
+>>>>>>> ac7c6a82fe48f50f89272494665baf59190c4bb8
