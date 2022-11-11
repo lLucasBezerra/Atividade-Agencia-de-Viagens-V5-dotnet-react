@@ -13,6 +13,7 @@ namespace ApiAgenciaDeViagens.Helper
             CreateMap<Cliente, ClienteDto>();
             CreateMap<Destino, DestinoDto>();
             CreateMap<Voo, VooDto>();
+            CreateMap<Promocao, PromocaoDto>();
         }
     }
 }

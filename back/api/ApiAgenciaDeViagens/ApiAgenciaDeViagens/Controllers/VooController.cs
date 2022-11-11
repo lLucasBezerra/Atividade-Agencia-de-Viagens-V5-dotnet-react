@@ -42,6 +42,7 @@ namespace ApiAgenciaDeViagens.Controllers
         {
             if (!_vooRepository.VooExists(id))
                 return NotFound();
+                
             var voo = _mapper.Map<VooDto>(_vooRepository.GetVoo(id));
 
             if (!ModelState.IsValid)
