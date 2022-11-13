@@ -9,6 +9,7 @@ namespace ApiAgenciaDeViagens.Interfaces
         bool VooExists(int id);
         bool CreateVoo(Voo voo);
         bool UpdateVoo(Voo voo);
+        bool DeleteVoo(Voo voo);
         bool Save();
     }
 }

@@ -15,6 +15,7 @@ namespace ApiAgenciaDeViagens.Interfaces
 
         bool CreateCliente(int destinoId, int vooId, Cliente cliente);
         bool UpdateCliente(int destinoId, int vooId, Cliente cliente);
+        bool DeleteCliente(Cliente cliente);
         bool Save();
     }
 }

@@ -10,6 +10,7 @@ namespace ApiAgenciaDeViagens.Interfaces
         bool PromocaoExist(int id);
         bool CreatePromocao(Promocao promocao);
         bool UpdatePromocao(Promocao promocao);
+        bool DeletePromocao(Promocao promocao);
         bool Save();
     }
 }

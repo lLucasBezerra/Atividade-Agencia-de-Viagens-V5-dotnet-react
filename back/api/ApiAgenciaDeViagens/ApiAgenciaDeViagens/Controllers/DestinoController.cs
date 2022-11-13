@@ -108,5 +108,27 @@ namespace ApiAgenciaDeViagens.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult DeleteDestino(int id)
+        {
+            if(!_destinoRepository.DestinoExist(id))
+                return NotFound();
+
+            var destinoToDelete = _destinoRepository.GetDestino(id);
+            
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            if(!_destinoRepository.DeleteDestino(destinoToDelete))
+            {
+                ModelState.AddModelError("", "Algo de errado aconteceu ao tentar deletar uma promocão");
+                return StatusCode(500, ModelState);
+            }
+            return NoContent();
+        }
     }
 }

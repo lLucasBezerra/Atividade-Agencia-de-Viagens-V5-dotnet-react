@@ -71,5 +71,10 @@ namespace ApiAgenciaDeViagens.Repositories
             _context.Update(cliente);
             return Save();
         }
+        public bool DeleteCliente(Cliente cliente)
+        {
+            _context.Remove(cliente);
+            return Save();
+        }
     }
 }

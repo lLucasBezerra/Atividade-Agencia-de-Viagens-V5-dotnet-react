@@ -46,5 +46,10 @@ namespace ApiAgenciaDeViagens.Interfaces
             _context.Update(promocao);
             return Save();
         }
+        public bool DeletePromocao(Promocao promocao)
+        {
+            _context.Remove(promocao);
+            return Save();
+        }
     }
 }

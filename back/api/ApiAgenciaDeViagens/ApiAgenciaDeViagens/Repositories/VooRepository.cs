@@ -47,5 +47,10 @@ namespace ApiAgenciaDeViagens.Repositories
             _context.Update(voo);
             return Save();
         }
+        public bool DeleteVoo(Voo voo)
+        {
+            _context.Remove(voo);
+            return Save();
+        }
     }
 }

@@ -110,5 +110,27 @@ namespace ApiAgenciaDeViagens.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult DeleteVoo(int id)
+        {
+            if(!_vooRepository.VooExists(id))
+                return NotFound();
+
+            var vooToDelete = _vooRepository.GetVoo(id);
+            
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            if(!_vooRepository.DeleteVoo(vooToDelete))
+            {
+                ModelState.AddModelError("", "Algo de errado aconteceu ao tentar deletar uma companhia aérea");
+                return StatusCode(500, ModelState);
+            }
+            return NoContent();
+        }
     }
 }
