@@ -203,6 +203,32 @@ namespace ApiAgenciaDeViagens.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Voos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanhiaA = "LATAM Airlines",
+                            Preco = 2500m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanhiaA = "Delta Airlines",
+                            Preco = 3100m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanhiaA = "Avianca",
+                            Preco = 5000m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanhiaA = "Azul",
+                            Preco = 2700m
+                        });
                 });
 
             modelBuilder.Entity("ApiAgenciaDeViagens.Models.Destino", b =>

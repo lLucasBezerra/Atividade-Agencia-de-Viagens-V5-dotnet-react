@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiAgenciaDeViagens.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221113195408_PrimeiraMigracao")]
+    [Migration("20221113202444_PrimeiraMigracao")]
     partial class PrimeiraMigracao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -205,6 +205,32 @@ namespace ApiAgenciaDeViagens.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Voos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanhiaA = "LATAM Airlines",
+                            Preco = 2500m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanhiaA = "Delta Airlines",
+                            Preco = 3100m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanhiaA = "Avianca",
+                            Preco = 5000m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanhiaA = "Azul",
+                            Preco = 2700m
+                        });
                 });
 
             modelBuilder.Entity("ApiAgenciaDeViagens.Models.Destino", b =>

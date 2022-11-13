@@ -144,6 +144,17 @@ namespace ApiAgenciaDeViagens.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Voos",
+                columns: new[] { "Id", "companhiaAerea", "preco" },
+                values: new object[,]
+                {
+                    { 1, "LATAM Airlines", 2500m },
+                    { 2, "Delta Airlines", 3100m },
+                    { 3, "Avianca", 5000m },
+                    { 4, "Azul", 2700m }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Destinos",
                 columns: new[] { "Id", "cidade", "obraRelacionada", "pais", "PromocaoId" },
                 values: new object[] { 5, "Atlanta", "Stranger Things", "Georgia", 1 });

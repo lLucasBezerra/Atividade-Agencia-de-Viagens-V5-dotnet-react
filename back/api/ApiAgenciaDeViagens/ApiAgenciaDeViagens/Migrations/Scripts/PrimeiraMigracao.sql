@@ -69,6 +69,15 @@ VALUES (2, 35, 'Novo Destino');
 INSERT INTO `Promocoes` (`Id`, `desconto`, `nomePromocao`)
 VALUES (3, 40, 'Black Friday');
 
+INSERT INTO `Voos` (`Id`, `companhiaAerea`, `preco`)
+VALUES (1, 'LATAM Airlines', 2500.0);
+INSERT INTO `Voos` (`Id`, `companhiaAerea`, `preco`)
+VALUES (2, 'Delta Airlines', 3100.0);
+INSERT INTO `Voos` (`Id`, `companhiaAerea`, `preco`)
+VALUES (3, 'Avianca', 5000.0);
+INSERT INTO `Voos` (`Id`, `companhiaAerea`, `preco`)
+VALUES (4, 'Azul', 2700.0);
+
 INSERT INTO `Destinos` (`Id`, `cidade`, `obraRelacionada`, `pais`, `PromocaoId`)
 VALUES (5, 'Atlanta', 'Stranger Things', 'Georgia', 1);
 
@@ -82,7 +91,7 @@ CREATE INDEX `IX_Escolhas_DestinoId` ON `Escolhas` (`DestinoId`);
 CREATE INDEX `IX_Escolhas_vooId` ON `Escolhas` (`vooId`);
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20221113195408_PrimeiraMigracao', '6.0.10');
+VALUES ('20221113202444_PrimeiraMigracao', '6.0.10');
 
 COMMIT;
 

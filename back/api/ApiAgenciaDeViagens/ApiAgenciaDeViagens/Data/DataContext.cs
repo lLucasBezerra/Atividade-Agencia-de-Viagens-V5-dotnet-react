@@ -120,6 +120,32 @@ namespace ApiAgenciaDeViagens.Data
                 }
 
             );
+            modelBuilder.Entity<Voo>().HasData(
+                new Voo
+                {
+                    Id = 1,
+                    CompanhiaA = "LATAM Airlines",
+                    Preco = 2500.00
+                },
+                new Voo
+                {
+                    Id = 2,
+                    CompanhiaA = "Delta Airlines",
+                    Preco = 3100.00
+                },
+                new Voo
+                {
+                    Id = 3,
+                    CompanhiaA = "Avianca",
+                    Preco = 5000.00
+                },
+                new Voo
+                {
+                    Id = 4,
+                    CompanhiaA = "Azul",
+                    Preco = 2700.00
+                }
+            );
         }
     }
 }
