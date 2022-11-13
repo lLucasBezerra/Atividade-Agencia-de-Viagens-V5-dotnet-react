@@ -12,6 +12,31 @@ namespace ApiAgenciaDeViagens.Repositories
         {
             _context = context;
         }
+
+        public bool CreateCliente(int destinoId, int vooId, Cliente cliente)
+        {
+            var clienteDestino = _context.Destinos.Where(d => d.Id == destinoId).FirstOrDefault();
+            var clienteVoo = _context.Voos.Where(v => v.Id == vooId).FirstOrDefault();
+            
+            var escolhas = new Escolha()
+            {
+                Cliente = cliente,
+                Destino = clienteDestino,
+                Voo = clienteVoo
+            };
+
+            _context.Add(escolhas);
+            _context.Add(cliente);
+            
+            return Save();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+
         public ICollection<Cliente> GetClientes()
         {
             return _context.Clientes.OrderBy(c => c.Id).ToList();
@@ -39,6 +64,12 @@ namespace ApiAgenciaDeViagens.Repositories
         public ICollection<Voo> GetVoosByCliente(int id)
         {
             return _context.Escolhas.Where(c => c.ClienteId == id).Select(v => v.Voo).ToList();
+        }
+
+        public bool UpdateCliente(int destinoId, int vooId, Cliente cliente)
+        {
+            _context.Update(cliente);
+            return Save();
         }
     }
 }

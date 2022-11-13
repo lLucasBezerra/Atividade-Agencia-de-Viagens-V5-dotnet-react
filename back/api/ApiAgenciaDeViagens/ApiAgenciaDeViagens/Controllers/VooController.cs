@@ -61,7 +61,7 @@ namespace ApiAgenciaDeViagens.Controllers
                 return BadRequest(ModelState);
 
             var voo = _vooRepository.GetVoos()
-                        .Where(v => v.CompanhiaA.Trim().ToUpper() == vooCreate.CompanhiaA.Trim().ToUpper()).FirstOrDefault();
+                        .Where(v => v.CompanhiaA.Trim().ToUpper() == vooCreate.CompanhiaA.TrimEnd().ToUpper()).FirstOrDefault();
             if(voo != null)
             {
                 ModelState.AddModelError("", "voo ja existente");
@@ -80,8 +80,35 @@ namespace ApiAgenciaDeViagens.Controllers
             }
 
             return Ok("Criado com sucesso!");
-            
+        }
 
+        [HttpPut("{vooId}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult UpdateVoo(int vooId, [FromBody]VooDto updatedVoo)
+        {
+            if(updatedVoo == null)
+                return BadRequest(ModelState);
+
+            if(vooId != updatedVoo.Id)
+                return BadRequest(ModelState);
+
+            if(!_vooRepository.VooExists(vooId))
+                return NotFound();
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var vooMap = _mapper.Map<Voo>(updatedVoo);
+
+            if(!_vooRepository.UpdateVoo(vooMap))
+            {
+                ModelState.AddModelError("", "Algo de errado aconteceu ao tentar atualizar um voo");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
         }
     }
 }

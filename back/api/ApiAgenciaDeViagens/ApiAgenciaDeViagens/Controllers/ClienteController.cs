@@ -74,5 +74,75 @@ namespace ApiAgenciaDeViagens.Controllers
 
             return Ok(voos);
         }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreateCliente(
+                            [FromQuery]int destinoId, 
+                            [FromQuery]int vooId, 
+                            [FromBody]ClienteDto clienteCreate)
+        {
+            // tudo isso para previnir e/ou informar erros
+            if(clienteCreate == null)
+                return BadRequest(ModelState);
+
+            var cliente = _clienteRepository.GetClientes()
+                        .Where(c => c.Cpf == clienteCreate.Cpf).FirstOrDefault();
+
+            if(cliente != null)
+            {
+                ModelState.AddModelError("", "cliente ja existente");
+                return StatusCode(422, ModelState);
+            }
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var clienteMap = _mapper.Map<Cliente>(clienteCreate);
+            
+            if(!_clienteRepository.CreateCliente(destinoId, vooId, clienteMap))
+            {
+                ModelState.AddModelError("", "Ocorreu algo de errado ao salvar");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Criado com sucesso!");
+            
+
+        }
+
+        [HttpPut("{clienteId}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult UpdateCliente(
+                                    int clienteId,
+                                    [FromQuery]int destinoId,
+                                    [FromQuery]int vooId,
+                                    [FromBody]ClienteDto updatedCliente)
+        {
+            if(updatedCliente == null)
+                return BadRequest(ModelState);
+
+            if(clienteId != updatedCliente.Id)
+                return BadRequest(ModelState);
+
+            if(!_clienteRepository.ClienteExist(clienteId))
+                return NotFound();
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var clienteMap = _mapper.Map<Cliente>(updatedCliente);
+
+            if(!_clienteRepository.UpdateCliente(destinoId, vooId, clienteMap))
+            {
+                ModelState.AddModelError("", "Algo de errado aconteceu ao tentar atualizar um voo");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
     }
 }

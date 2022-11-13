@@ -57,7 +57,7 @@ namespace ApiAgenciaDeViagens.Controllers
                 return BadRequest(ModelState);
 
             var destino = _destinoRepository.GetDestinos()
-                        .Where(d => d.Cidade.Trim().ToUpper() == destinoCreate.Cidade.Trim().ToUpper() && d.ObraR == destinoCreate.Cidade).FirstOrDefault();
+                        .Where(d => d.Cidade.Trim().ToUpper() == destinoCreate.Cidade.TrimEnd().ToUpper() && d.ObraR == destinoCreate.Cidade).FirstOrDefault();
             if(destino != null)
             {
                 ModelState.AddModelError("", "destino ja existente");
@@ -78,6 +78,35 @@ namespace ApiAgenciaDeViagens.Controllers
             return Ok("Criado com sucesso!");
             
 
+        }
+
+        [HttpPut("{destinoId}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult Updatedestino(int destinoId, [FromBody]DestinoDto updatedDestino)
+        {
+            if(updatedDestino == null)
+                return BadRequest(ModelState);
+
+            if(destinoId != updatedDestino.Id)
+                return BadRequest(ModelState);
+
+            if(!_destinoRepository.DestinoExist(destinoId))
+                return NotFound();
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var destinoMap = _mapper.Map<Destino>(updatedDestino);
+
+            if(!_destinoRepository.UpdateDestino(destinoMap))
+            {
+                ModelState.AddModelError("", "Algo de errado aconteceu ao tentar atualizar um destino");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
         }
     }
 }

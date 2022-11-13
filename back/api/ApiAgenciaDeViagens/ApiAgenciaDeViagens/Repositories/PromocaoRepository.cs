@@ -40,5 +40,11 @@ namespace ApiAgenciaDeViagens.Interfaces
         {
             return _context.Promocoes.Any(p => p.Id == id);
         }
+
+        public bool UpdatePromocao(Promocao promocao)
+        {
+            _context.Update(promocao);
+            return Save();
+        }
     }
 }

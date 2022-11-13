@@ -33,6 +33,15 @@ namespace ApiAgenciaDeViagens.Repositories
         {
             return _context.Destinos.ToList();
         }
+         public bool DestinoExist(int id)
+        {
+            return _context.Destinos.Any(p => p.Id == id);
+        }
 
+        public bool UpdateDestino(Destino destino)
+        {
+            _context.Update(destino);
+            return Save();
+        }
     }
 }

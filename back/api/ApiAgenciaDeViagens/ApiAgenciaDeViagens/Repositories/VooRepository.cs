@@ -42,5 +42,10 @@ namespace ApiAgenciaDeViagens.Repositories
             return _context.Voos.ToList();
         }
 
+        public bool UpdateVoo(Voo voo)
+        {
+            _context.Update(voo);
+            return Save();
+        }
     }
 }

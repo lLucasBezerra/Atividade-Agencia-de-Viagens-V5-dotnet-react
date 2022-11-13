@@ -12,5 +12,9 @@ namespace ApiAgenciaDeViagens.Interfaces
         ICollection<Destino> GetDestinosByCliente(int id);
         ICollection<Voo> GetVoosByCliente(int id);
 
+
+        bool CreateCliente(int destinoId, int vooId, Cliente cliente);
+        bool UpdateCliente(int destinoId, int vooId, Cliente cliente);
+        bool Save();
     }
 }
