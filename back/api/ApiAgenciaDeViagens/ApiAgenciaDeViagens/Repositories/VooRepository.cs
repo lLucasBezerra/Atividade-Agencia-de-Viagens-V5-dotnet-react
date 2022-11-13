@@ -16,6 +16,18 @@ namespace ApiAgenciaDeViagens.Repositories
             _mapper = mapper;
         }
 
+        public bool CreateVoo(Voo voo)
+        {
+            _context.Add(voo);
+            return Save();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+
         public Voo GetVoo(int id)
         {
             return _context.Voos.Where(v => v.Id == id).FirstOrDefault();
@@ -29,5 +41,6 @@ namespace ApiAgenciaDeViagens.Repositories
         {
             return _context.Voos.ToList();
         }
+
     }
 }

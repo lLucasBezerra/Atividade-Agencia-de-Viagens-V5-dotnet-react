@@ -6,5 +6,7 @@ namespace ApiAgenciaDeViagens.Interfaces
     {
         ICollection<Destino> GetDestinos();
         Destino GetDestino(int id);
+        bool CreateDestino(Destino destino);
+        bool Save();
     }
 }

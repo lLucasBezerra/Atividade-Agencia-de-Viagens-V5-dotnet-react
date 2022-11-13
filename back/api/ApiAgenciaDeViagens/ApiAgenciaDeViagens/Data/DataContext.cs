@@ -39,6 +39,87 @@ namespace ApiAgenciaDeViagens.Data
                 .HasForeignKey(v => v.vooId);
                 
 
+            // Seeding
+            modelBuilder.Entity<Promocao>().HasData(
+                new Promocao
+                {
+                    Id = 1,
+                    NomePromo = "Promo Inaugural",
+                    Desconto = 20
+                },
+                new Promocao
+                {
+                    Id = 2,
+                    NomePromo = "Novo Destino",
+                    Desconto = 35
+                },
+                new Promocao
+                {
+                    Id = 3,
+                    NomePromo = "Black Friday",
+                    Desconto = 40
+                }
+
+            );
+            modelBuilder.Entity<Destino>().HasData(
+                new Destino
+                {
+                    Id = 1,
+                    Pais = "Itália",
+                    Cidade = "Cinque-Terre",
+                    ObraR = "Luca",
+                    PromocaoId = null
+                },
+                new Destino
+                {
+                    Id = 2,
+                    Pais = "Itália",
+                    Cidade = "París",
+                    ObraR = "Ratatoulle",
+                    PromocaoId = null
+                },
+                new Destino
+                {
+                    Id = 3,
+                    Pais = "Itália",
+                    Cidade = "Sicília",
+                    ObraR = "Poderoso Chefão",
+                    PromocaoId = null
+                },
+                new Destino
+                {
+                    Id = 4,
+                    Pais = "Irlanda",
+                    Cidade = "Condado de Down",
+                    ObraR = "Game of Thrones",
+                    PromocaoId = null
+                },
+                new Destino
+                {
+                    Id = 5,
+                    Pais = "Georgia",
+                    Cidade = "Atlanta",
+                    ObraR = "Stranger Things",
+                    PromocaoId = 1
+                },
+                new Destino
+                {
+                    Id = 6,
+                    Pais = "Estados Unidos",
+                    Cidade = "Los Angeles",
+                    ObraR = "Sitcoms em geral",
+                    PromocaoId = null
+                },
+                new Destino
+                {
+                    Id = 7,
+                    Pais = "Inglaterra",
+                    Cidade = "Londres",
+                    ObraR = "Sandman",
+                    PromocaoId = 2 
+                }
+
+            );
         }
     }
 }

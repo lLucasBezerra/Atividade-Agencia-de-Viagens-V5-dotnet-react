@@ -11,9 +11,16 @@ namespace ApiAgenciaDeViagens.Helper
         public MappingProfiles()
         {
             CreateMap<Cliente, ClienteDto>();
+            CreateMap<ClienteDto, Cliente>();
+
             CreateMap<Destino, DestinoDto>();
+            CreateMap<DestinoDto, Destino>();
+
             CreateMap<Voo, VooDto>();
+            CreateMap<VooDto, Voo>();
+            
             CreateMap<Promocao, PromocaoDto>();
+            CreateMap<PromocaoDto, Promocao>();
         }
     }
 }

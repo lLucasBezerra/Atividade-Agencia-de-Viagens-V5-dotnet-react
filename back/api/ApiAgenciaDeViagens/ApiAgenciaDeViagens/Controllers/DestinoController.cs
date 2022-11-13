@@ -25,7 +25,7 @@ namespace ApiAgenciaDeViagens.Controllers
         public IActionResult GetDestinos()
         {
             //maneira mais clean? porém um pouco mais trabalhosa
-            var destinos = _mapper.Map<List<DestinoDto>>(_destinoRepository.GetDestinos);
+            var destinos = _mapper.Map<List<DestinoDto>>(_destinoRepository.GetDestinos());
 
 
             if (!ModelState.IsValid)
@@ -45,6 +45,39 @@ namespace ApiAgenciaDeViagens.Controllers
                 return BadRequest(ModelState);
 
             return Ok(destino);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreateDestino([FromBody] DestinoDto destinoCreate)
+        {
+            // tudo isso para previnir e/ou informar erros
+            if(destinoCreate == null)
+                return BadRequest(ModelState);
+
+            var destino = _destinoRepository.GetDestinos()
+                        .Where(d => d.Cidade.Trim().ToUpper() == destinoCreate.Cidade.Trim().ToUpper() && d.ObraR == destinoCreate.Cidade).FirstOrDefault();
+            if(destino != null)
+            {
+                ModelState.AddModelError("", "destino ja existente");
+                return StatusCode(422, ModelState);
+            }
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var destinoMap = _mapper.Map<Destino>(destinoCreate);
+            
+            if(!_destinoRepository.CreateDestino(destinoMap))
+            {
+                ModelState.AddModelError("", "Ocorreu algo de errado ao salvar");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Criado com sucesso!");
+            
+
         }
     }
 }

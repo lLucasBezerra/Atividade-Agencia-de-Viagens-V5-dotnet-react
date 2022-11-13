@@ -8,5 +8,7 @@ namespace ApiAgenciaDeViagens.Interfaces
         Promocao GetPromocao(int id);
         ICollection<Destino> GetDestinosByPromocao(int id);
         bool PromocaoExist(int id);
+        bool CreatePromocao(Promocao promocao);
+        bool Save();
     }
 }

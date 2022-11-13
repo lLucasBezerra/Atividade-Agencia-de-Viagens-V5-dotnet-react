@@ -56,5 +56,38 @@ namespace ApiAgenciaDeViagens.Controllers
 
             return Ok(destino);
         }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreatePromocao([FromBody] PromocaoDto promocaoCreate)
+        {
+            // tudo isso para previnir e/ou informar erros
+            if(promocaoCreate == null)
+                return BadRequest(ModelState);
+
+            var promocao =  _promocaoRespository.GetPromocoes()
+                        .Where(p => p.NomePromo.Trim().ToUpper() == promocaoCreate.NomePromo.Trim().ToUpper()).FirstOrDefault();
+            if(promocao != null)
+            {
+                ModelState.AddModelError("", "promocao ja existente");
+                return StatusCode(422, ModelState);
+            }
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var promocaoMap = _mapper.Map<Promocao>(promocaoCreate);
+            
+            if(!_promocaoRespository.CreatePromocao(promocaoMap))
+            {
+                ModelState.AddModelError("", "Ocorreu algo de errado ao salvar");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Criado com sucesso!");
+            
+
+        }
     }
 }

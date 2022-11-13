@@ -12,6 +12,16 @@ namespace ApiAgenciaDeViagens.Interfaces
         {
             _context = context;
         }
+        public bool CreatePromocao(Promocao promocao)
+        {
+            _context.Add(promocao);
+            return Save();
+        }
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
         public ICollection<Destino> GetDestinosByPromocao(int id)
         {
             return _context.Destinos.Where(d => d.PromocaoId == id).ToList();

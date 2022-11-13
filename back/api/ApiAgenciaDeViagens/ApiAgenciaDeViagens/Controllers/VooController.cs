@@ -50,5 +50,38 @@ namespace ApiAgenciaDeViagens.Controllers
 
             return Ok(voo);
         }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreateVoo([FromBody] VooDto vooCreate)
+        {
+            // tudo isso para previnir e/ou informar erros
+            if(vooCreate == null)
+                return BadRequest(ModelState);
+
+            var voo = _vooRepository.GetVoos()
+                        .Where(v => v.CompanhiaA.Trim().ToUpper() == vooCreate.CompanhiaA.Trim().ToUpper()).FirstOrDefault();
+            if(voo != null)
+            {
+                ModelState.AddModelError("", "voo ja existente");
+                return StatusCode(422, ModelState);
+            }
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var vooMap = _mapper.Map<Voo>(vooCreate);
+            
+            if(!_vooRepository.CreateVoo(vooMap))
+            {
+                ModelState.AddModelError("", "Ocorreu algo de errado ao salvar");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Criado com sucesso!");
+            
+
+        }
     }
 }

@@ -7,5 +7,7 @@ namespace ApiAgenciaDeViagens.Interfaces
         ICollection<Voo> GetVoos();
         Voo GetVoo(int id);
         bool VooExists(int id);
+        bool CreateVoo(Voo voo);
+        bool Save();
     }
 }

@@ -17,6 +17,8 @@ builder.Services.AddDbContextPool<DataContext>(options =>
 builder.Services.AddControllers();
 // Para o autoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddControllers().AddJsonOptions(x =>
+                                    x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IDestinoRepository, DestinoRepository>();
