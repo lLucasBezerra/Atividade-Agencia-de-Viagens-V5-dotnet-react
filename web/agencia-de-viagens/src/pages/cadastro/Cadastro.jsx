@@ -16,16 +16,8 @@ export default function cadastro() {
         origem: "",
         dataIda: "",
         dataVolta: ""
-        // destino:{
-        //     id: idDest
-        // },
-        // voo:{
-        //     id: idVoo
-        // }
     })
     const { cpf, origem, dataIda, dataVolta } = clientes;
-    // const { id: codDest } = clientes.destino;
-    // const {id: codVoo} = clientes.voo;
 
 
     const [destinos, setDestinos] = useState([]);
@@ -56,13 +48,13 @@ export default function cadastro() {
 
 
     const carregarDestinos = async () =>{
-        const result= await axios.get("http://localhost:8080/api/destinos");
+        const result= await axios.get("https://localhost:7156/api/Destino");
         setDestinos(result.data);
         // console.log(result.data);
     }
 
     const carregarVoo = async () =>{
-        const result = await axios.get("http://localhost:8080/api/voos");
+        const result = await axios.get("https://localhost:7156/api/Voo");
         setVoos(result.data);
         // console.log(result.data);
     }
@@ -72,20 +64,12 @@ export default function cadastro() {
         //para n mostrar tudo no link
         e.preventDefault();
 
-        //não consegui fazer o post funcionar, desculpe.
-        // atualização. consegui, mas não do jeito que eu queria
 
-         await axios.post("http://localhost:8080/api/cliente", {
+         await axios.post(`https://localhost:7156/api/Cliente?destinoId=${idDest}&vooId=${idVoo}`, {
             cpf: cpf,
             origem: origem,
             dataIda: dataIda,
-            dataVolta: dataVolta,
-            destino:{
-                id: idDest
-            },
-            voo:{
-                id: idVoo
-            }
+            dataVolta: dataVolta
          })
         
         //nessa caso, a pagina inicial
@@ -177,9 +161,10 @@ export default function cadastro() {
                     
                     <tr>
                         <th scope="row" key={destinos.id}>{destinos.id}</th>
-                        <td>{destinos.paises}</td>
+                        <td>{destinos.pais}</td>
                         <td>{destinos.cidade}</td>
                         <td>{destinos.obraR}</td>
+                        
                     </tr>
                 ))
             }

@@ -25,6 +25,9 @@ builder.Services.AddScoped<IDestinoRepository, DestinoRepository>();
 builder.Services.AddScoped<IVooRepository, VooRepository>();
 builder.Services.AddScoped<IPromocaoRepository, PromocaoRepository>();
 
+// para deixar usar com react
+builder.Services.AddCors();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -36,6 +39,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+// para deixar usar com react
+app.UseCors(c =>
+    {
+        c.AllowAnyHeader();
+        c.AllowAnyMethod();
+        c.AllowAnyOrigin();
+    }
+);
 
 app.UseHttpsRedirection();
 

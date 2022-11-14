@@ -9,6 +9,8 @@
     background-color: var(--cor-s);
     height: 90vh;
     padding: 2%;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 40px;
 }
 @media (max-width: 870px){

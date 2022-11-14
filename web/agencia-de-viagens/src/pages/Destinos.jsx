@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "./destinosCSS.css"
+import "./destinosCSS.css";
 
 import Atlanta from "../assets/img-cards/atlanta.jpg";
 import CastleWard from "../assets/img-cards/castle_ward.jpg";

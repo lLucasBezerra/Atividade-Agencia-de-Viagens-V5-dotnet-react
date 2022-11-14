@@ -11,6 +11,11 @@
 .background{
     background-color: #f4f4f4;
 }
+.titulo{
+    font-family: var(--font-principal);   
+    font-weight: 700;
+    /* color: var(--cor-s); */
+}
 /* .background{
     background-color: var(--cor-bg);
 } */
